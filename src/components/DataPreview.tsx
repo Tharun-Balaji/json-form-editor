@@ -38,19 +38,44 @@ interface CopyButtonProps {
   className?: string;
 }
 
+// export const CopyButton: React.FC<CopyButtonProps> = ({ data, className }) => {
+//   const { copyData, copied } = useCopyData();
+
+//   return (
+//     <button
+//       onClick={() => copyData(data)}
+//       className={`flex items-center ${className}`}
+//     >
+//       {copied ? <Check size={20} /> : <Copy size={20} />}
+//       <span className="ml-2">{copied ? 'Copied!' : 'Copy Data'}</span>
+//     </button>
+//   );
+// };
+
 export const CopyButton: React.FC<CopyButtonProps> = ({ data, className }) => {
-  const { copyData, copied } = useCopyData();
+  const { copyData, copied, copyError } = useCopyData();
 
   return (
-    <button 
-      onClick={() => copyData(data)}
-      className={`flex items-center ${className}`}
-    >
-      {copied ? <Check size={20} /> : <Copy size={20} />}
-      <span className="ml-2">{copied ? 'Copied!' : 'Copy Data'}</span>
-    </button>
+    <>
+      <button 
+        onClick={() => copyData(data)}
+        className={`flex items-center ${className}`}
+        disabled={copied}
+      >
+        {copied ? <Check size={20} /> : <Copy size={20} />}
+        <span className="ml-2">
+          {copied ? 'Copied!' : (copyError || 'Copy Data')}
+        </span>
+      </button>
+      {copyError && (
+        <div className="text-red-500 text-sm mt-1">
+          {copyError}
+        </div>
+      )}
+    </>
   );
 };
+
 
 // Download Button Component
 interface DownloadButtonProps {
@@ -59,21 +84,49 @@ interface DownloadButtonProps {
   className?: string;
 }
 
+// export const DownloadButton: React.FC<DownloadButtonProps> = ({
+//   data,
+//   fileName,
+//   className
+// }) => {
+//   const { downloadData, downloaded } = useDownloadData();
+
+//   return (
+//     <button
+//       onClick={() => downloadData(data, fileName)}
+//       className={`flex items-center ${className}`}
+//     >
+//       {downloaded ? <Check size={20} /> : <Download size={20} />}
+//       <span className="ml-2">{downloaded ? 'Downloaded!' : 'Download Data'}</span>
+//     </button>
+//   );
+// };
+
 export const DownloadButton: React.FC<DownloadButtonProps> = ({ 
   data, 
   fileName, 
   className 
 }) => {
-  const { downloadData, downloaded } = useDownloadData();
+  const { downloadData, downloaded, downloadError } = useDownloadData();
 
   return (
-    <button 
-      onClick={() => downloadData(data, fileName)}
-      className={`flex items-center ${className}`}
-    >
-      {downloaded ? <Check size={20} /> : <Download size={20} />}
-      <span className="ml-2">{downloaded ? 'Downloaded!' : 'Download Data'}</span>
-    </button>
+    <>
+      <button 
+        onClick={() => downloadData(data, fileName)}
+        className={`flex items-center ${className}`}
+        disabled={downloaded}
+      >
+        {downloaded ? <Check size={20} /> : <Download size={20} />}
+        <span className="ml-2">
+          {downloaded ? 'Downloaded!' : (downloadError || 'Download Data')}
+        </span>
+      </button>
+      {downloadError && (
+        <div className="text-red-500 text-sm mt-1">
+          {downloadError}
+        </div>
+      )}
+    </>
   );
 };
 
