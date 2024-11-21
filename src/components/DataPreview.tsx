@@ -38,20 +38,6 @@ interface CopyButtonProps {
   className?: string;
 }
 
-// export const CopyButton: React.FC<CopyButtonProps> = ({ data, className }) => {
-//   const { copyData, copied } = useCopyData();
-
-//   return (
-//     <button
-//       onClick={() => copyData(data)}
-//       className={`flex items-center ${className}`}
-//     >
-//       {copied ? <Check size={20} /> : <Copy size={20} />}
-//       <span className="ml-2">{copied ? 'Copied!' : 'Copy Data'}</span>
-//     </button>
-//   );
-// };
-
 export const CopyButton: React.FC<CopyButtonProps> = ({ data, className }) => {
   const { copyData, copied, copyError } = useCopyData();
 
@@ -84,23 +70,6 @@ interface DownloadButtonProps {
   className?: string;
 }
 
-// export const DownloadButton: React.FC<DownloadButtonProps> = ({
-//   data,
-//   fileName,
-//   className
-// }) => {
-//   const { downloadData, downloaded } = useDownloadData();
-
-//   return (
-//     <button
-//       onClick={() => downloadData(data, fileName)}
-//       className={`flex items-center ${className}`}
-//     >
-//       {downloaded ? <Check size={20} /> : <Download size={20} />}
-//       <span className="ml-2">{downloaded ? 'Downloaded!' : 'Download Data'}</span>
-//     </button>
-//   );
-// };
 
 export const DownloadButton: React.FC<DownloadButtonProps> = ({ 
   data, 
