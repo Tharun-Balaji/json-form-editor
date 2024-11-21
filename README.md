@@ -47,11 +47,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 src/
 ├── components/
+│   ├── DataPreview.tsx
+│   ├── FormComponents.tsx
 │   ├── JSONEditor.tsx
 │   ├── FormPreview.tsx
 │   └── ErrorBoundary.tsx
 ├── hooks/
-│   └── useJSONValidation.ts
+│   └── FormSubmission.ts
 ├── utils/
 │   └── validateJSON.ts
 ├── App.tsx
