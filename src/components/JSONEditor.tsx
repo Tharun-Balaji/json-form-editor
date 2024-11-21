@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
 import { validateJSONSchema } from "../utils/validateJSON";
 
+
 interface JSONEditorProps {
   onChange: (valid: boolean, data: any) => void;
 }
@@ -10,6 +11,7 @@ const JSONEditor: React.FC<JSONEditorProps> = ({ onChange }) => {
   const [json, setJson] = useState<string>("{}");
   const [error, setError] = useState<string | null>(null);
   
+
 
   const handleEditorChange = (value: string | undefined) => {
     const jsonValue = value || "";
@@ -20,6 +22,8 @@ const JSONEditor: React.FC<JSONEditorProps> = ({ onChange }) => {
     setError(error);
     onChange(isValid, data);
   };
+  
+  
 
   return (
     <div className="h-1/2 md:h-full flex flex-col p-4 border-r bg-gray-50">
