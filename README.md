@@ -24,6 +24,17 @@ A dynamic form creation tool that allows users to generate forms based on JSON s
 - Jest (Testing)
 - Playwright (E2E Testing)
 
+## 📸 Preview
+![app preview](image.png)
+![invalid json input](image-1.png)
+![form preview](image-2.png)
+![form validation error](image-3.png)
+![required fields error](image-4.png)
+![successful submission](image-5.png)
+![form data copy to clipboard](image-6.png)
+![Download form submissions data in JSON](image-7.png)
+
+
 ## JSON Schema Types
 
 The project defines flexible form field types in `types/JSONSchema.ts`:
@@ -367,13 +378,14 @@ json-form-editor/
 │   └── index.css
 │
 ├── tests/
-│   	├── form-generation.spec.ts
+│   	├──form-generation.spec.ts
 │  		├──form-validation.spec.ts
+│   	├──form-submission.spec.ts
 │ 
 │ 
 ├── __tests__/
-│   	├── jsonValidation.test.ts
-│   	├──\hook.test.ts
+│   	├──jsonValidation.test.ts
+│   	├──hook.test.ts
 │ 
 │
 ├── config/
