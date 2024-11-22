@@ -3,7 +3,7 @@ export const validateJSONSchema = (json: string) => {
     const data = JSON.parse(json);
 
     // Check for required top-level properties
-    if (typeof data !== "object" || data === null) {
+    if (typeof data !== "object" || data === null || Array.isArray(data)) {
       return { isValid: false, error: "Root element must be an object", data: null };
     }
 
@@ -13,6 +13,10 @@ export const validateJSONSchema = (json: string) => {
 
     if (!data.formDescription || typeof data.formDescription !== "string") {
       return { isValid: false, error: "Missing or invalid 'formDescription'", data: null };
+    }
+
+    if (Array.isArray(data.fields) && data.fields.length === 0) { 
+      return { isValid: false, error: "Missing or invalid 'fields'", data: null };
     }
 
     if (!Array.isArray(data.fields)) {

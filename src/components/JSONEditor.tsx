@@ -46,7 +46,7 @@
           
         </div>
         {error && (
-          <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-md">
+          <div id="error-message" className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-md">
             <p>{error}</p>
           </div>
         )}

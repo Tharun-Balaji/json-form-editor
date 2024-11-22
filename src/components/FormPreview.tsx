@@ -88,7 +88,7 @@ const FormPreview: React.FC<FormPreviewProps> = ({ schema, onSubmit: customOnSub
   return (
     <>
       <div className="max-w-md mx-auto p-4">
-        <h2 className="text-2xl font-bold mb-4">{schema.formTitle}</h2>
+        <h2 id='formTitle' className="text-2xl font-bold mb-4">{schema.formTitle}</h2>
         <p className="text-gray-600 mb-4">{schema.formDescription}</p>
         
         <form onSubmit={handleSubmit(handleFormSubmit)}>

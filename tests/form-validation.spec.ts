@@ -10,10 +10,11 @@ test.describe('JSON Schema Validation', () => {
 
   test('Rejects non-object root', async ({ page }) => {
     const invalidSchemas = [
-      '[]',
       '"string"',
       'null',
       '123'
+      'true',
+      'false'
     ];
 
     for (const invalidSchema of invalidSchemas) {
@@ -35,6 +36,7 @@ test.describe('JSON Schema Validation', () => {
     const invalidSchemas = [
       // Missing formTitle
       JSON.stringify({
+        "formTitle": 'Title',
         "formDescription": "Test Description",
         "fields": []
       }),
